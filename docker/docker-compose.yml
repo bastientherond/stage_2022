@@ -1,0 +1,39 @@
+version: "3"
+services:         
+    db_symfony_colcot:
+        image: mariadb:latest
+        container_name: db_symfony_colcot
+        command: [ "--default-authentication-plugin=mysql_native_password" ]
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: gsbgenerique
+          MYSQL_DATABASE: colcot
+          MYSQL_USER: gestionnaire
+          MYSQL_PASSWORD: gsbgenerique
+        volumes:
+          - ./initSQL/:/docker-entrypoint-initdb.d/
+          - "./datamysql-colcot:/var/lib/mysql"
+        ports:
+          - "3311:3306"
+        networks:
+          - dev-sym
+
+    www_symfony_colcot:
+        build: php
+        container_name: www_symfony_colcot
+        ports:
+          - "8094:80"
+        user: 0:0
+        volumes:
+            - ./php/vhosts:/etc/apache2/sites-enabled
+            - /home/colcot/Documents/colcot_symfony/Colcot/:/var/www
+        restart: always
+        networks:
+            - dev-sym
+
+networks:
+    dev-sym:
+
+volumes:
+    db-data:
+
