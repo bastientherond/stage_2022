@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+        <title>{% block title %}Colcot{% endblock %}</title>
+        <link rel="icon" type="image/png" href="/images/logo-onglet.png">
+        {# Run `composer require symfony/webpack-encore-bundle`
+                   and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/css/register.css">
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="/javascript/base.js"></script>
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+
+{% block body %}
+    <div class="form-container">
+        <div class="logo-container">
+            <a href="/">
+                <img src="images/login/Logo.svg" alt="Logo-colcot">
+            </a>
+        </div>
+
+        <div class="formWrapper">
+            <div class="sidebar-container">
+                <div class="sidebar">
+                    <div id="compte-sidebar" class="top-bar"></div>
+                    <div id="profile-sidebar" class="bottom-bar"></div>
+                </div>
+                <div class="sidebar-text">
+                    <a class="compte-containe" onclick="compte()">
+                        <p id="compte-text" class="active-text">Votre compte</p>
+                    </a>
+                    <p id="profile-text" class="inactive-text">Votre profile</p>
+                </div>
+            </div>
+
+            {{ form_start(registrationForm) }}
+            <div class="active-part" id="account-part">
+                <div class="username-container">
+                    {{ form_row(registrationForm.username)}}
+                </div>
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
+            </div>
+
+            <div class="inactive-part" id="profile-part">
+                {{ form_row(registrationForm.prenom) }}
+                {{ form_row(registrationForm.nom) }}
+                {{ form_row(registrationForm.date_naissance) }}
+            </div>
+            <div class="cgu-container-inactive" id="cgu">
+                {{ form_row(registrationForm.agreeTerms) }}
+                <label for="cgu" class="cgu-text">J'ai lu et j'accepte les <a href="/" class="cgu-hyperlink"> conditions général d'utilisation</a></label>
+            </div>
+
+            <div class="bottom">
+                <p id="next-button" class="next-button" onclick="next('profile-part')">Etape suivante</p>
+                <button id='form-inscription' class="Bouton-inscription-inactive">Créer le compte</button>
+            </div>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}

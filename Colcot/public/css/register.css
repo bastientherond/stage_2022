@@ -1,0 +1,289 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url('/images/login/background-image.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: fixed;
+}
+
+.form-container{
+    width: 550px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 16px rgba(54, 54, 54, 0.25);
+    border-radius: 20px;
+    padding: 27px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.username-container{
+    display: contents;
+    height: 100%;
+    width: 100%;
+}
+.username-container img{
+    position: absolute;
+    margin-top: 15px;
+    margin-right: 42px;
+    right: 0;
+}
+
+.mail-container{
+    display: contents;
+    height: 100%;
+    width: 100%;
+}
+.mail-container img{
+    position: absolute;
+    margin-top: 97px;
+    margin-right: 42px;
+    right: 0;
+}
+
+.password-container{
+    display: contents;
+    height: 100%;
+    width: 100%;
+}
+.password-container img{
+    position: absolute;
+    margin-top: 179px;
+    margin-right: 42px;
+    right: 0;
+}
+
+form{
+    width: 298px;
+    margin-left: auto;
+    margin-right: 0;
+}
+form input{
+    padding-left: 15px;
+    background: rgba(239, 169, 107, 0.12);
+    border: 1.5px solid rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    height: 52px;
+    width: 100%;
+}
+
+form label{
+    display: none;
+}
+.active-part{
+    display: grid;
+    margin-top: 37px;
+    grid-template-rows: 52px 52px 52px;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+.input-form{
+    background: rgba(239, 169, 107, 0.12);
+    border: 1.5px solid rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.bottom .Bouton-inscription:hover{
+    transition: 0.4s;
+    background: #DC8F4B;
+}
+
+.bottom .Bouton-inscription{
+    margin-top: 43px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 51.87px;
+    width: 100%;
+    background: #EFA96B;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.bottom .Bouton-inscription-inactive{
+    display: none;
+}
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.sidebar-container{
+    position: absolute;
+    height: 298px;
+    display: flex;
+    top: 162px;
+}
+.sidebar{
+    height: 100%;
+    position: relative;
+}
+.sidebar-text{
+    position: relative;
+    top: 76px;
+    margin-left: 30px;
+}
+.active-text{
+    transition: 0.4s;
+    margin: 0;
+    margin-bottom: 135px;
+    font-family: Arial;
+}
+.inactive-text{
+    margin: 0;
+    transition: 0.4s;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0, 0.35);;
+    margin-bottom: 135px;
+}
+
+.top-bar{
+    position: relative;
+    display: block;
+    border: 2px solid #EFA96B;
+    height: 50%;
+    border-radius: 2px 2px 0 0;
+}
+.bottom-bar{
+    position: relative;
+    display: block;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    height: 50%;
+    border-radius: 0 0 2px 2px;
+}
+.empty-bar{
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 0 0;
+}
+.current-bar{
+    border: 2px solid #EFA96B;
+    border-radius: 0 0 2px 2px;
+}
+
+.inactive-part{
+    display: none;
+}
+.next-button{
+    margin-top: 43px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 51.87px;
+    width: 100%;
+    background: #EFA96B;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.next-button:hover{
+    transition: 0.4s;
+    background: #DC8F4B;
+}
+.next-button-inactive{
+    display: none;
+}
+
+.cgu-container-inactive{
+    display: none;
+}
+
+.cgu-container{
+    margin-top: 15px ;
+    position: absolute;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    vertical-align: center;
+    height: 13px;
+    width: 100%;
+}
+
+.cgu-box{
+    margin: 0;
+}
+
+.cgu-hyperlink{
+    text-decoration: underline;
+    color: black;
+}
+.cgu-text{
+    display: flex;
+    padding-left: 10px;
+}
+.cgu-container input {
+    display: flex;
+    width: auto;
+}
+input#registration_form_agreeTerms{
+    height: auto;
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        background-image: none;
+    }
+
+    .form-container{
+        width: 100%;
+        border-radius: 20px;
+        padding: 27px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: none;
+    }
+
+    form input{
+        height: 62px;
+    }
+    .sidebar-container{
+        display: none;
+    }
+
+    form[name='registration_form']{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .formWrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .active-part{
+        grid-template-rows: 62px 62px 62px;
+        margin-top: 50px;
+    }
+    .next-button{
+        height: 62px;
+        margin-top: 50px
+    }
+    .username-container img{
+        height: 25px;
+        margin-top: 18.5px;
+    }
+    .mail-container img{
+        height: 25px;
+        margin-top: 110.5px;
+    }
+    .password-container img{
+        height: 25px;
+        margin-top: 202.5px;
+    }
+}

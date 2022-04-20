@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="annonces-container">
+        {% for article in articles %}
+            <div class="article-container">
+                <div class="annonce-image-container">
+                    <img class="annonce-image" src="{{ asset('/uploads/annonces/' ~ article.brochureFilename) }}">
+                </div>
+
+                <div class="annonce-info-container-short">
+                    <div class="annonce-title">
+                        <h2>{{ article.titre }}</h2>
+                    </div>
+                    <div class="annonce-prix">
+                        <p>100€</p>
+                    </div>
+                </div>
+
+                <div class="annonce-info-container">
+                    <div class="annonce-title">
+                        <h2>{{ article.titre }}</h2>
+                    </div>
+                    <div class="annonce-prix-container">
+                        <p class="annonce-prix">100€</p>
+                    </div>
+                    <div class="annonce-description">
+                        <p>{{ article.description }}</p>
+                    </div>
+                    <a href="/annonces/{{ article.idannonce }}">
+                        <button class="annonce-boutton">Voir plus</button>
+                    </a>
+                </div>
+
+                <footer class="annonce-footer">
+                    <p class="date-publication">date de mise en ligne :</p>
+                </footer>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

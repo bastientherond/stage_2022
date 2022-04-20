@@ -1,0 +1,199 @@
+@font-face {
+    font-family: "Roboto";
+    src: local('Roboto/Roboto-Thin.ttf');
+}
+
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url('/images/login/background-image.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: fixed;
+}
+.form-container{
+    width: 390px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 16px rgba(54, 54, 54, 0.25);
+    border-radius: 20px;
+    padding: 27px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form input{
+    padding-left: 15px;
+}
+.account-part{
+    display: grid;
+    margin-top: 37px;
+    grid-template-rows: 52px 52px;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+.account-part input{
+    background: rgba(239, 169, 107, 0.12);
+    border: 1.5px solid rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+.usernamelogo{;
+    position: absolute;
+    left: 82%;
+    top: 38.5%;
+}
+
+.passwordlogo{
+    position: absolute;
+    left: 82%;
+    top: 53%;
+}
+.bottom-form button{
+    margin-top: 43px;
+    height: 51.87px;
+    width: 100%;
+    background: #EFA96B;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+.bottom-form button:hover{
+    transition: 0.4s;
+    background: #DC8F4B;
+}
+
+.bottom .register-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    width: 100%;
+    background: #EFA96B;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: Arial;
+}
+.bottom .register-button:hover{
+    transition: 0.4s;
+    background: #DC8F4B;
+}
+
+.bottom a{
+    margin: 0;
+}
+.logo-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom-text{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Arial;
+    font-size: 14px;
+}
+.forget-text{
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    top: 60%;
+    right: 10%;
+    text-decoration: none;
+    color: black;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+.forget-text:hover{
+    text-decoration: underline;
+}
+.bottom-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        background-image: none;
+    }
+
+    .form-container{
+        width: 100%;
+        background: none;
+        box-shadow: none;
+    }
+
+    .account-part{
+        grid-template-rows: 62px 62px;
+    }
+
+    .forget-text{
+        right: 27px;
+        top: 380px;
+        font-size: 15px;
+        text-decoration: underline;
+    }
+
+    .form input{
+        padding-left: 0px;
+    }
+
+    .usernamelogo{;
+        top: 43.5%;
+        left: 84%;
+    }
+
+    .bottom-form button{
+        height: 62px;
+        margin-top: 65px;
+    }
+
+    .passwordlogo{
+        top: 60%;
+        left: 84%;
+    }
+
+    .bottom{
+        display: none;
+    }
+
+    .bottom-mobile{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-size: 19px;
+        font-family: Arial;
+    }
+
+    .bottom-mobile a{
+        text-decoration: underline;
+        color: black;
+    }
+    input#inputUsername{
+        padding: 15px;
+    }
+    input#inputPassword {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Colcot{% endblock %}</title>
+        <link rel="icon" type="image/png" href="/images/logo-onglet.png">
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/css/base.css">
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="javascript/base.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="navbar-container">
+                    <a href="/">
+                        <img src="/images/LogoColcot.svg" class="LogoColcot">
+                    </a>
+                    <div class="categories-container">
+                        <div class="categories-button">
+                            <p class="categories-button-text">Catégories</p>
+                            <img src="/images/dropdown.svg" class="LogoDropdown">
+                        </div>
+                        <div class="categorie-content">
+                            <div class="categorie-wrapper">
+                                <a href="/" class="dropdown-element">
+                                    <img src="/images/categories/LogoModelisme.svg" class="dropdown-logo">
+                                    <p class="dropdown-element-text">Modélisme</p>
+                                    <img src="/images/LogoSelected.svg" class="dropdown-selected">
+                                </a>
+                                <a  href="/" class="dropdown-element">
+                                    <img src="/images/categories/LogoPhilatelie.svg" class="dropdown-logo">
+                                    <p class="dropdown-element-text">Philatélie</p>
+                                    <img src="/images/LogoSelected.svg" class="dropdown-selected">
+                                </a>
+                                <a href="/" class="dropdown-element">
+                                    <img src="/images/categories/LogoOenologie.svg" class="dropdown-logo">
+                                    <p class="dropdown-element-text">Œnologie</p>
+                                    <img src="/images/LogoSelected.svg" class="dropdown-selected">
+                                </a>
+                                <a href="/" class="dropdown-element">
+                                    <img src="/images/categories/LogoAutre.svg" class="dropdown-logo">
+                                    <p href="" class="dropdown-element-text">Autre</p>
+                                    <img src="/images/LogoSelected.svg" class="dropdown-selected">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="search-bar-container">
+                        <div class="search-bar-content">
+                            <input type="text" placeholder="Rechercher..." class="search-bar">
+                            <button type="submit" class="navbar-button"><img src="/images/LogoResearch.svg"></button>
+                        </div>
+                    </form>
+
+                    <button id="bouton-depot-annonce" onClick="redirect()">
+                        <div class="Button-content">
+                            <img src="/images/LogoAdd.svg" class="LogoAdd">
+                            <span class="Bouton-Add-Text">Déposer une annonce</span>
+                        </div>
+                    </button>
+                    <div class="notifications-container">
+                        <a href="/">
+                            <div class="notification-logo">
+                                <img src="/images/LogoNotification.svg" class="LogoNotification">
+                                <p class="navbar-text-button">Notifications</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="like-container">
+                        <a href="/">
+                            <div class="like-logo">
+                                <img src="/images/LogoFavoris.svg" class="LogoFavoris">
+                                <p class="navbar-text-button">Favoris</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="message-container">
+                        <a href="/">
+                            <div class="message-logo">
+                                <img src="/images/LogoMessage.svg" class="LogoMessage">
+                                <p class="navbar-text-button">Messages</p>
+                            </div>
+                        </a>
+                    </div>
+                    {% if app.user %}
+                        <div class="profile-container">
+                            <div class="profile-button" onclick="profileDropdown('.profile-content')">
+                                <img src="/images/LogoProfile.svg" class="LogoProfile">
+                                <p class="navbar-text-button">Profile</p>
+                            </div>
+                            <div class="profile-content-hidden" id="profile-content">
+                                <div class="profile-wrapper">
+                                    <div class="profile-element-header">
+                                        <p>Bonjour, {{ app.user.username }}</p>
+                                    </div>
+                                    <hr class="separation-profile">
+                                    <a href="" class="dropdown-element">
+                                        <img src="/images/MenuProfile/LogoProfileMenu.svg" class="dropdown-logo">
+                                        <p href="" class="dropdown-element-text">Mon profil</p>
+                                        <img src="/images/LogoSelected.svg" class="dropdown-selected">
+                                    </a>
+                                    <a href="" class="dropdown-element">
+                                        <img src="/images/MenuProfile/LogoMesAnnonces.svg" class="dropdown-logo">
+                                        <p href="" class="dropdown-element-text">Mes annonces</p>
+                                        <img src="/images/LogoSelected.svg" class="dropdown-selected">
+                                    </a>
+                                    <a href="" class="dropdown-element">
+                                        <img src="/images/MenuProfile/LogoReglage.svg" class="dropdown-logo">
+                                        <p href="" class="dropdown-element-text">Réglage</p>
+                                        <img src="/images/LogoSelected.svg" class="dropdown-selected">
+                                    </a>
+                                    <hr class="separation-profile-2">
+                                    <div class="profile-element-footer">
+                                        <a href="/logout" class="dropdown-element-text-footer">Se déconnecter</a>
+                                        <img src="/images/MenuProfile/LogoDarkMode.svg" class="themeMode-logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                    <a href="/login">
+                        <div class="profile-container" style="width: 85px">
+                            <div class="profile-button">
+                                <img src="/images/LogoProfile.svg" class="LogoProfile">
+                                <p class="navbar-text-button">Se connecter</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                </div>
+            </nav>
+
+            <nav class="mobile-nav">
+                <div class="mobile-container">
+                    <a href="/">
+                        <img src="/images/mobile/LogoColcot.svg" class="LogoColcot">
+                    </a>
+                    <div class="profile-container">
+                        <a href="/">
+                            <div class="profil-logo">
+                                <img src="/images/mobile/LogoProfile.svg" class="LogoProfile">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="search-container">
+                        <a href="/">
+                            <div class="search-logo">
+                                <img src="/images/mobile/LogoResearch.svg" class="LogoRecherche">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="message-container">
+                        <a href="/">
+                            <div class="message-logo">
+                                <img src="/images/mobile/LogoMessage.svg" class="LogoMessage">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="dropdown-container">
+                        <a href="/">
+                            <div class="dropdown-logo">
+                                <img src="/images/mobile/LogoDropdown.svg" class="LogoDropdownMobile">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <script>
+            $(document).mouseup(function(e)
+            {
+                var container = $(".profile-content");
+                if (!container.is(e.target) && container.has(e.target).length === 0)
+                {
+                    $(".profile-content").removeClass('profile-content').addClass("profile-content-hidden")
+                }
+            });
+        </script>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
